@@ -59,10 +59,10 @@ const SOCIAL_ICONS: Record<string, any> = {
 		<Section id="proyectos">
 			<div class="flex justify-center">
 				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4 text-neutral-900 dark:text-white">
-					<Code class="size-8" />Proyectos
+					<Code class="size-8" />Últimos proyectos
 				</h2>
 			</div>
-			<Projects />
+			<Projects limit={3} showViewAll={true} />
 		</Section>
 		<AboutMeSection id="sobre_mi">
 			<div class="flex justify-center">

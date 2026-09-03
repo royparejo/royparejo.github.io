@@ -47,14 +47,20 @@ royparejo.github.io/
 │   │   │   ├── SocialIcons.astro # Botón/enlace reutilizable de redes y enlaces externos
 │   │   │   ├── TechnologyIcons.astro # Pill/badge de tecnología
 │   │   │   └── ThemeToggle.astro # Botón conmutador de tema claro/oscuro
-│   │   └── Home/                 # Secciones y componentes específicos de la página de inicio
-│   │       ├── AboutMe.astro     # Reseña personal y trayectoria
-│   │       ├── AboutMeSection.astro # Contenedor de sección Sobre mí
-│   │       ├── Certificates.astro # Sección y lista de certificados/cursos
-│   │       ├── CertificatesSection.astro # Contenedor de sección de certificados
-│   │       ├── Projects.astro    # Listado de proyectos y tarjetas con enlaces
-│   │       ├── Technologies.astro # Grid categorizado de habilidades técnicas
-│   │       └── TechnologiesSection.astro # Contenedor de sección de tecnologías
+│   │   ├── Home/                 # Secciones y componentes específicos de la página de inicio
+│   │   │   ├── AboutMe.astro     # Reseña personal y trayectoria
+│   │   │   ├── AboutMeSection.astro # Contenedor de sección Sobre mí
+│   │   │   ├── Certificates.astro # Sección y lista de certificados/cursos
+│   │   │   ├── CertificatesSection.astro # Contenedor de sección de certificados
+│   │   │   ├── Projects.astro    # Listado de últimos proyectos con límite configurable
+│   │   │   ├── Technologies.astro # Grid categorizado de habilidades técnicas
+│   │   │   └── TechnologiesSection.astro # Contenedor de sección de tecnologías
+│   │   ├── NotFound/             # Componentes para rutas no encontradas (404)
+│   │   │   └── NotFound.astro    # Vista e ilustración de página 404
+│   │   └── Project/              # Componentes de proyectos y detalle
+│   │       ├── ProjectArticle.astro # Artículo detallado del proyecto con 4 secciones
+│   │       ├── ProjectCard.astro # Tarjeta de proyecto clickeable y reusable
+│   │       └── ProjectsList.astro # Listado completo de proyectos
 │   ├── config/                   # Configuración y datos dinámicos desacoplados
 │   │   ├── types/
 │   │   │   └── configDataTypes.ts # Interfaces TypeScript para todas las entidades
@@ -63,21 +69,17 @@ royparejo.github.io/
 │   │   ├── footerData.json.ts    # Datos del pie de página
 │   │   ├── heroData.json.ts      # Datos del hero, perfil y redes sociales
 │   │   ├── navData.json.ts       # Enlaces de la barra de navegación
-│   │   ├── projectsData.json.ts  # Proyectos y tags
+│   │   ├── projectsData.json.ts  # Proyectos, tags, shortDescription y descriptionHtml
 │   │   └── technologiesData.json.ts # Categorías y habilidades técnicas
 │   ├── icons/                    # Componentes Astro de iconos SVG (en inglés sin abreviaturas)
-│   │   ├── Social/               # Github, Linkedin, Gmail, Playstore, Appstore, etc.
-│   │   ├── Technologies/         # Iconos agrupados por:
-│   │   │   ├── AdditionalTools/  # Figma, Git, Netlify, Notion, Vercel, etc.
-│   │   │   ├── Databases/        # Mongo, Mysql, Sql, Sqlite
-│   │   │   ├── FrameworksLibraries/ # Android, Ast, Bootstrap, Express, Flutter, React, Tailwind, etc.
-│   │   │   └── Languages/        # Html, Css, Js, Ts, Dart, Java, Python, Php, etc.
-│   │   ├── Theme/                # Sun, Moon (iconos para conmutación de tema)
-│   │   └── Titles/               # Iconos para encabezados de sección (Code, AboutMeIcon, CertificateIcon, TechnologyIcon)
 │   ├── layouts/
-│   │   └── Layout.astro          # Layout base (HTML, Head, SEO metadata, tema dinámico claro/oscuro)
+│   │   └── Layout.astro          # Layout base (HTML, Head, SEO metadata, tema dinámico)
 │   ├── pages/
-│   │   └── index.astro           # Página de inicio principal
+│   │   ├── 404.astro             # Página de error 404
+│   │   ├── index.astro           # Página de inicio principal (con últimos proyectos)
+│   │   └── projects/
+│   │       ├── [slug].astro      # Página dinámica por slug de proyecto
+│   │       └── index.astro       # Listado general de proyectos
 │   └── env.d.ts                  # Declaraciones de tipos globales de Astro
 ├── astro.config.mjs              # Configuración de Astro con integración Tailwind
 ├── package.json                  # Scripts y dependencias del proyecto

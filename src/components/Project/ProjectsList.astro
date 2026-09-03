@@ -1,0 +1,10 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projectsData } from "../../config/projectsData.json";
+---
+
+<div class="flex flex-col gap-y-12">
+  {projectsData.map((project) => (
+    <ProjectCard project={project} headingLevel="h2" />
+  ))}
+</div>

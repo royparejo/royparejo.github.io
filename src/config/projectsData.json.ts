@@ -55,8 +55,20 @@ export const projectTags: Record<string, TagInfo> = {
 
 export const projectsData: ProjectItem[] = [
   {
+    slug: "simplifica-repartos",
     title: "Simplifica Repartos",
-    description: "Es una herramienta diseñada para gestionar y coordinar la entrega de productos o mercancías de manera eficiente. Con esta aplicación, los encargados de los despachos pueden planificar rutas, asignar entregas, registrar el estado de cada envío y hacer seguimiento en tiempo real",
+    shortDescription: "Es una herramienta diseñada para gestionar y coordinar la entrega de productos o mercancías de manera eficiente. Con esta aplicación, los encargados de los despachos pueden planificar rutas, asignar entregas, registrar el estado de cada envío y hacer seguimiento en tiempo real.",
+    descriptionHtml: `
+      <p><strong>Simplifica Repartos</strong> es una solución móvil integral diseñada para optimizar los procesos de logística de última milla y distribución de productos y mercancías.</p>
+      <p>Diseñada pensando en la usabilidad y velocidad de operación en ruta, permite a los transportistas y coordinadores gestionar despachos con total trazabilidad.</p>
+      <h3>Características Principales</h3>
+      <ul>
+        <li><strong>Planificación de rutas:</strong> Organización inteligente de paradas y prioridades de entrega.</li>
+        <li><strong>Sincronización Offline:</strong> Almacenamiento local con <strong>SQLite</strong> que permite continuar registrando entregas sin cobertura de red.</li>
+        <li><strong>Validación de entregas:</strong> Registro de firmas digitales, capturas fotográficas de evidencia y validación por GPS.</li>
+        <li><strong>Reportes en tiempo real:</strong> Comunicación directa con el sistema central para el seguimiento de estados de despacho.</li>
+      </ul>
+    `,
     link: "",
     image: "/projects/app-repartos.webp",
     tags: ["Dart", "Flutter", "Sqlite"],
@@ -64,8 +76,20 @@ export const projectsData: ProjectItem[] = [
     appstore: ""
   },
   {
+    slug: "plaza-4",
     title: "Plaza 4",
-    description: "Herramienta para el manejo de puntos de los clientes, la aplicación proporciona una tarjeta virtual y el historial de movimientos de los puntos del usuario.",
+    shortDescription: "Herramienta para el manejo de puntos de los clientes, la aplicación proporciona una tarjeta virtual y el historial de movimientos de los puntos del usuario.",
+    descriptionHtml: `
+      <p><strong>Plaza 4</strong> es una aplicación móvil de fidelización y lealtad de clientes, creada para brindar una experiencia de usuario rápida, moderna e interactiva.</p>
+      <p>Permite a los usuarios consultar y canjear sus puntos acumulados en comercios asociados, eliminando la necesidad de tarjetas plásticas físicas.</p>
+      <h3>Funcionalidades Destacadas</h3>
+      <ul>
+        <li><strong>Tarjeta virtual:</strong> Generación de código QR y de barras dinámico para escaneo inmediato en caja.</li>
+        <li><strong>Historial de transacciones:</strong> Visualización detallada de movimientos, abonos y canjes de puntos.</li>
+        <li><strong>Catálogo de beneficios:</strong> Exploración de recompensas disponibles y promociones vigentes.</li>
+        <li><strong>Multiplataforma:</strong> Experiencia idéntica y optimizada tanto en iOS (App Store) como en Android (Google Play).</li>
+      </ul>
+    `,
     link: "",
     github: "",
     image: "/projects/app-puntos.webp",
@@ -74,8 +98,20 @@ export const projectsData: ProjectItem[] = [
     appstore: "https://apps.apple.com/us/app/plaza-4/id6740218700",
   },
   {
+    slug: "registro-pdv",
     title: "Registro PDV",
-    description: "Herramiento para el registro de asistencia usando del personal de campo, la aplicación utiliza la cámara y ubicación GPS para un mejor control.",
+    shortDescription: "Herramienta para el registro de asistencia del personal de campo, la aplicación utiliza la cámara y ubicación GPS para un mejor control.",
+    descriptionHtml: `
+      <p><strong>Registro PDV</strong> es una herramienta corporativa orientada al control de asistencia y verificación de presencia en puntos de venta para promotores, mercaderistas y personal de campo.</p>
+      <p>Combina tecnologías de geolocalización y validación biométrica fotográfica para asegurar la presencia física en el lugar de trabajo asignado.</p>
+      <h3>Capacidades y Tecnologías</h3>
+      <ul>
+        <li><strong>Validación por Geocercas:</strong> Verificación de coordenadas GPS contra el radio permitido del punto de venta.</li>
+        <li><strong>Reconocimiento fotográfico:</strong> Captura de selfie en tiempo real al ingresar y culminar la jornada.</li>
+        <li><strong>Gestión de incidencias:</strong> Reporte de permisos, descansos médicos y novedades directamente desde el móvil.</li>
+        <li><strong>Alta disponibilidad:</strong> Cola de sincronización local para zonas comerciales con señal limitada.</li>
+      </ul>
+    `,
     link: "",
     github: "",
     image: "/projects/app-ubicacion.webp",
@@ -84,8 +120,20 @@ export const projectsData: ProjectItem[] = [
     appstore: "https://appstoreconnect.apple.com/apps/6444106260/distribution/ios/version/deliverable",
   },
   {
+    slug: "himnario-adventista-smi",
     title: "Himnario Adventista SMI",
-    description: "Catalogo de himnos, pentagramas y audios con reproductor. La app permite al usuario descargar los recursos y usarlos sin conexión.",
+    shortDescription: "Catálogo de himnos, pentagramas y audios con reproductor. La app permite al usuario descargar los recursos y usarlos sin conexión.",
+    descriptionHtml: `
+      <p><strong>Himnario Adventista SMI</strong> es una aplicación completa de música y alabanzas diseñada para facilitar el canto congregacional e individual.</p>
+      <p>Ofrece una experiencia rica en contenido multimedia, permitiendo reproducir pistas de audio, visualizar partituras musicales y cantar las letras de cada himno.</p>
+      <h3>Características Principales</h3>
+      <ul>
+        <li><strong>Búsqueda rápida:</strong> Localización instantánea de himnos por número, título o fragmentos de letra.</li>
+        <li><strong>Reproductor de audio integrado:</strong> Pistas de acompañamiento y coro con control de reproducción en segundo plano.</li>
+        <li><strong>Visor de pentagramas:</strong> Partituras digitales en alta resolución con zoom y ajuste de pantalla.</li>
+        <li><strong>Descargas Offline:</strong> Capacidad de descargar paquetes de audio y partituras para su uso sin conexión a internet.</li>
+      </ul>
+    `,
     link: "",
     github: "",
     image: "/projects/app-himnario.webp",
@@ -94,8 +142,20 @@ export const projectsData: ProjectItem[] = [
     appstore: "https://apps.apple.com/us/app/himnario-adventista-smi-up/id1551068161",
   },
   {
+    slug: "gzampu-zamponia",
     title: "GZampu zampoña",
-    description: "Zampoña es un instrumento musical propio de América latina, contiene sonidos dulces y profundos que relajan la mente.",
+    shortDescription: "Zampoña es un instrumento musical propio de América latina, contiene sonidos dulces y profundos que relajan la mente.",
+    descriptionHtml: `
+      <p><strong>GZampu Zampoña</strong> es una aplicación musical interactiva desarrollada para Android que simula la ejecución real de la zampoña, instrumento de viento emblemático del folklore andino.</p>
+      <p>Diseñada con alta fidelidad sonora y una interfaz sensible al tacto para ofrecer una experiencia inmersiva tanto a músicos principiantes como avanzados.</p>
+      <h3>Detalles Técnicos</h3>
+      <ul>
+        <li><strong>Audio de baja latencia:</strong> Muestras de sonido grabadas en estudio para cada nota musical.</li>
+        <li><strong>Diseño ergonómico:</strong> Distribución de tubos y notas adaptada para pantallas táctiles de múltiples tamaños.</li>
+        <li><strong>Persistencia local:</strong> Configuración de afinación y preferencias guardadas con <strong>SQLite</strong>.</li>
+        <li><strong>Desarrollo nativo:</strong> Implementado en <strong>Java / Android SDK</strong> optimizado para máxima fluidez y bajo consumo de batería.</li>
+      </ul>
+    `,
     link: "",
     github: "",
     image: "/projects/app-gzampu.webp",

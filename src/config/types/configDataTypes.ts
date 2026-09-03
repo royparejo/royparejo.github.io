@@ -23,8 +23,10 @@ export interface TagInfo {
 }
 
 export interface ProjectItem {
+  slug?: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  descriptionHtml?: string;
   image: string;
   tags: string[];
   link?: string;

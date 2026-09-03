@@ -1,0 +1,127 @@
+---
+import Html from "../../icons/Technologies/Languages/Html.astro";
+import Css from "../../icons/Technologies/Languages/Css.astro";
+import Dart from "../../icons/Technologies/Languages/Dart.astro";
+import Java from "../../icons/Technologies/Languages/Java.astro";
+import Js from "../../icons/Technologies/Languages/Js.astro";
+import React from "../../icons/Technologies/FrameworksLibraries/React.astro";
+import Firebase from "../../icons/Technologies/FrameworksLibraries/Firebase.astro";
+import Flutter from "../../icons/Technologies/FrameworksLibraries/Flutter.astro";
+import Android from "../../icons/Technologies/FrameworksLibraries/Android.astro";
+import Sqlite from "../../icons/Technologies/Databases/Sqlite.astro";
+import SocialIcons from "../Global/SocialIcons.astro";
+import Github from "../../icons/Social/Github.astro";
+import Link from "../../icons/Social/Link.astro";
+import Playstore from "../../icons/Social/Playstore.astro";
+import Appstore from "../../icons/Social/Appstore.astro";
+import { projectTags } from "../../config/projectsData.json";
+import type { ProjectItem } from "../../config/types/configDataTypes";
+
+interface Props {
+  project: ProjectItem;
+  headingLevel?: "h2" | "h3";
+}
+
+const { project, headingLevel = "h3" } = Astro.props;
+const { slug, image, title, shortDescription, tags, link, github, playstore, appstore } = project;
+
+const projectSlug = slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const projectUrl = `/projects/${projectSlug}`;
+
+const TAG_ICONS: Record<string, any> = {
+  Html,
+  Css,
+  Dart,
+  Java,
+  Js,
+  React,
+  Firebase,
+  Flutter,
+  Android,
+  Sqlite,
+};
+
+const HeadingTag = headingLevel;
+---
+
+<article class="group relative flex flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0 p-4 sm:p-6 rounded-2xl transition-all duration-300 border border-neutral-200/80 dark:border-neutral-800/80 bg-white/40 dark:bg-neutral-900/40 hover:bg-white/80 dark:hover:bg-neutral-900/80 hover:border-blue-500/40 dark:hover:border-blue-400/40 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1 active:scale-[0.99] cursor-pointer">
+  <!-- Enlace transparente que hace toda la tarjeta clickeable -->
+  <a
+    href={projectUrl}
+    class="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+    aria-label={`Ver detalles del proyecto ${title}`}
+  ></a>
+
+  <!-- Columna izquierda: Imagen del proyecto con animación de zoom -->
+  <div class="w-full md:w-1/2 flex items-center">
+    <div class="relative w-full overflow-hidden rounded-xl border border-neutral-200/70 dark:border-neutral-800 shadow-md transition-all duration-500 group-hover:shadow-lg group-hover:border-blue-500/30">
+      <img
+        alt={`Captura del Proyecto ${title}`}
+        class="object-cover object-top w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
+        loading="lazy"
+        src={image}
+      />
+    </div>
+  </div>
+
+  <!-- Columna derecha: Detalles, etiquetas y enlaces externos -->
+  <div class="w-full md:w-1/2 flex flex-col justify-center">
+    <HeadingTag class="text-2xl font-bold mb-2 text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+      {title}
+    </HeadingTag>
+
+    <!-- Etiquetas de tecnologías -->
+    <div class="flex flex-wrap mt-1 mb-2">
+      <ul class="flex flex-row gap-x-2 flex-wrap">
+        {tags.map((tagKey) => {
+          const tag = projectTags[tagKey];
+          if (!tag) return null;
+          const IconComponent = TAG_ICONS[tag.icon];
+          return (
+            <li class="my-1">
+              <span class={`flex gap-x-1.5 rounded-full text-xs ${tag.class} py-1 px-2.5 items-center shadow-sm font-medium`}>
+                {IconComponent && <IconComponent class="size-3.5" />}
+                {tag.name}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+
+    <!-- Descripción breve -->
+    <p class="mt-2 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
+      {shortDescription}
+    </p>
+
+    <!-- Enlaces directos a tiendas / código (con z-20 para ser clickeables independientemente) -->
+    {(github || link || playstore || appstore) && (
+      <footer class="relative z-20 flex items-center justify-start gap-x-3 gap-y-2 flex-wrap mt-auto pt-2">
+        {playstore && (
+          <SocialIcons href={playstore}>
+            <Playstore class="size-4" />
+            Google Play
+          </SocialIcons>
+        )}
+        {appstore && (
+          <SocialIcons href={appstore}>
+            <Appstore class="size-4" />
+            App Store
+          </SocialIcons>
+        )}
+        {link && (
+          <SocialIcons href={link}>
+            <Link class="size-4" />
+            Preview
+          </SocialIcons>
+        )}
+        {github && (
+          <SocialIcons href={github}>
+            <Github class="size-4" />
+            Code
+          </SocialIcons>
+        )}
+      </footer>
+    )}
+  </div>
+</article>

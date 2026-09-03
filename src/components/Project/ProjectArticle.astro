@@ -1,0 +1,153 @@
+---
+import Html from "../../icons/Technologies/Languages/Html.astro";
+import Css from "../../icons/Technologies/Languages/Css.astro";
+import Dart from "../../icons/Technologies/Languages/Dart.astro";
+import Java from "../../icons/Technologies/Languages/Java.astro";
+import Js from "../../icons/Technologies/Languages/Js.astro";
+import React from "../../icons/Technologies/FrameworksLibraries/React.astro";
+import Firebase from "../../icons/Technologies/FrameworksLibraries/Firebase.astro";
+import Flutter from "../../icons/Technologies/FrameworksLibraries/Flutter.astro";
+import Android from "../../icons/Technologies/FrameworksLibraries/Android.astro";
+import Sqlite from "../../icons/Technologies/Databases/Sqlite.astro";
+import SocialIcons from "../Global/SocialIcons.astro";
+import Github from "../../icons/Social/Github.astro";
+import Link from "../../icons/Social/Link.astro";
+import Playstore from "../../icons/Social/Playstore.astro";
+import Appstore from "../../icons/Social/Appstore.astro";
+import { projectTags } from "../../config/projectsData.json";
+import type { ProjectItem } from "../../config/types/configDataTypes";
+
+interface Props {
+  project: ProjectItem;
+}
+
+const { project } = Astro.props;
+
+const TAG_ICONS: Record<string, any> = {
+  Html,
+  Css,
+  Dart,
+  Java,
+  Js,
+  React,
+  Firebase,
+  Flutter,
+  Android,
+  Sqlite,
+};
+
+const hasLinks = Boolean(project.github || project.link || project.playstore || project.appstore);
+---
+
+<article class="w-full max-w-4xl mx-auto py-8">
+  <!-- Navegación de regreso -->
+  <div class="mb-8">
+    <a
+      href="/projects"
+      class="inline-flex items-center gap-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"></path>
+      </svg>
+      Volver a Proyectos
+    </a>
+  </div>
+
+  <!-- SECCIÓN 1: Título y descripción corta (Todo el ancho) -->
+  <header class="w-full mb-10 pb-8 border-b border-neutral-200 dark:border-neutral-800">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4 tracking-tight">
+      {project.title}
+    </h1>
+    <p class="text-lg sm:text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl leading-relaxed text-pretty">
+      {project.shortDescription}
+    </p>
+  </header>
+
+  <!-- Contenido principal en columnas: Izquierda (Etiquetas, Enlaces, Contenido HTML) / Derecha (Imagen) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <!-- LADO IZQUIERDO -->
+    <div class="lg:col-span-7 flex flex-col gap-y-8">
+      <!-- SECCIÓN 2: Lado izquierdo - Etiquetas -->
+      <section>
+        <h2 class="text-xs uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
+          Tecnologías y herramientas
+        </h2>
+        <ul class="flex flex-wrap gap-2">
+          {project.tags.map((tagKey) => {
+            const tag = projectTags[tagKey];
+            if (!tag) return null;
+            const IconComponent = TAG_ICONS[tag.icon];
+            return (
+              <li>
+                <span class={`flex gap-x-2 rounded-full text-xs sm:text-sm ${tag.class} py-1.5 px-3 items-center shadow-sm font-medium`}>
+                  {IconComponent && <IconComponent class="size-4" />}
+                  {tag.name}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <!-- SECCIÓN 3: Lado izquierdo - Enlaces de las tiendas o demo -->
+      {hasLinks && (
+        <section>
+          <h2 class="text-xs uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
+            Enlaces y disponibilidad
+          </h2>
+          <div class="flex items-center gap-3 flex-wrap">
+            {project.playstore && (
+              <SocialIcons href={project.playstore}>
+                <Playstore class="size-4" />
+                Google Play
+              </SocialIcons>
+            )}
+            {project.appstore && (
+              <SocialIcons href={project.appstore}>
+                <Appstore class="size-4" />
+                App Store
+              </SocialIcons>
+            )}
+            {project.link && (
+              <SocialIcons href={project.link}>
+                <Link class="size-4" />
+                Demo en vivo
+              </SocialIcons>
+            )}
+            {project.github && (
+              <SocialIcons href={project.github}>
+                <Github class="size-5" />
+                Ver Código
+              </SocialIcons>
+            )}
+          </div>
+        </section>
+      )}
+
+      <!-- SECCIÓN 4: Lado izquierdo - Contenido HTML más grande -->
+      {project.descriptionHtml && (
+        <section class="pt-4 border-t border-neutral-200 dark:border-neutral-800">
+          <h2 class="text-xs uppercase tracking-wider font-semibold text-neutral-500 dark:text-neutral-400 mb-4">
+            Detalles del Proyecto
+          </h2>
+          <div
+            class="text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-4 text-pretty [&>p]:mb-3 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-neutral-900 dark:[&>h3]:text-white [&>h3]:mt-6 [&>h3]:mb-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2 [&>ul>li>strong]:text-neutral-900 dark:[&>ul>li>strong]:text-white [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-blue-400"
+            set:html={project.descriptionHtml}
+          />
+        </section>
+      )}
+    </div>
+
+    <!-- LADO DERECHO: Imagen del proyecto -->
+    <div class="lg:col-span-5 sticky top-24">
+      <div class="overflow-hidden rounded-2xl border border-neutral-200/80 dark:border-neutral-800 shadow-xl bg-neutral-100 dark:bg-neutral-800/50">
+        <img
+          src={project.image}
+          alt={`Captura del proyecto ${project.title}`}
+          class="w-full h-auto object-cover object-top transition duration-500 hover:scale-105"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</article>
