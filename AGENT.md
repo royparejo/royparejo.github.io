@@ -45,13 +45,14 @@ royparejo.github.io/
 │   │   ├── Certificates.astro    # Sección y lista de certificados/cursos
 │   │   ├── CertificatesSection.astro # Contenedor de sección de certificados
 │   │   ├── Footer.astro          # Pie de página y copyright
-│   │   ├── Header.astro          # Barra de navegación fija / enlaces de sección
+│   │   ├── Header.astro          # Barra de navegación fija / enlaces de sección y toggle de tema
 │   │   ├── Projects.astro        # Listado de proyectos y tarjetas con enlaces
 │   │   ├── Section.astro         # Contenedor estándar para secciones
 │   │   ├── SocialIcons.astro     # Botón/enlace reutilizable de redes y enlaces externos
 │   │   ├── Technologies.astro    # Grid categorizado de habilidades técnicas
 │   │   ├── TechnologiesSection.astro # Contenedor de sección de tecnologías
-│   │   └── TechnologyIcons.astro # Pill/badge de tecnología
+│   │   ├── TechnologyIcons.astro # Pill/badge de tecnología
+│   │   └── ThemeToggle.astro     # Botón conmutador de tema claro/oscuro
 │   ├── config/                   # Configuración y datos dinámicos desacoplados
 │   │   ├── types/
 │   │   │   └── configDataTypes.ts # Interfaces TypeScript para todas las entidades
@@ -69,15 +70,16 @@ royparejo.github.io/
 │   │   │   ├── Databases/        # Mongo, Mysql, Sql, Sqlite
 │   │   │   ├── FrameworksLibraries/ # Android, Ast, Bootstrap, Express, Flutter, React, Tailwind, etc.
 │   │   │   └── Languages/        # Html, Css, Js, Ts, Dart, Java, Python, Php, etc.
+│   │   ├── Theme/                # Sun, Moon (iconos para conmutación de tema)
 │   │   └── Titles/               # Iconos para encabezados de sección (Code, AboutMeIcon, CertificateIcon, TechnologyIcon)
 │   ├── layouts/
-│   │   └── Layout.astro          # Layout base (HTML, Head, SEO metadata, background glow)
+│   │   └── Layout.astro          # Layout base (HTML, Head, SEO metadata, tema dinámico claro/oscuro)
 │   ├── pages/
 │   │   └── index.astro           # Página de inicio principal
 │   └── env.d.ts                  # Declaraciones de tipos globales de Astro
 ├── astro.config.mjs              # Configuración de Astro con integración Tailwind
 ├── package.json                  # Scripts y dependencias del proyecto
-├── tailwind.config.mjs           # Configuración de Tailwind CSS
+├── tailwind.config.mjs           # Configuración de Tailwind CSS con darkMode: 'class'
 └── tsconfig.json                 # Configuración de TypeScript (`astro/tsconfigs/strict`)
 ```
 
@@ -98,7 +100,7 @@ royparejo.github.io/
 ## 📐 Convenciones de Código y Arquitectura
 
 ### 1. Componentes Astro (`.astro`)
-- Nombrados completamente en **inglés** en formato PascalCase sin abreviaturas (ej. `TechnologiesSection.astro`, `AboutMeSection.astro`, `SocialIcons.astro`).
+- Nombrados completamente en **inglés** en formato PascalCase sin abreviaturas (ej. `TechnologiesSection.astro`, `AboutMeSection.astro`, `SocialIcons.astro`, `ThemeToggle.astro`).
 - Utilizar el frontmatter (`---`) al inicio del archivo para imports, props typing con TypeScript (`interface Props`) y consumo de datos dinámicos.
 - Mantener los componentes funcionales, presentacionales y reutilizables.
 - Para pasar contenido dinámico a un contenedor, usar `<slot />`.
@@ -108,14 +110,16 @@ royparejo.github.io/
 - Las interfaces y tipos estrictos de TypeScript residen en `src/config/types/configDataTypes.ts`.
 - Los componentes `.astro` importan y renderizan estos datos dinámicamente en lugar de tener información hardcodeada en el template.
 
-### 3. Estilos y Diseño
-- El tema principal es **Dark Mode** permanente (`background: #171717`, `color: #fff`, fondo con gradiente radial y desenfoque).
+### 3. Estilos y Sistema de Temas (Claro / Oscuro)
+- Soporte dinámico para **Dark Mode** y **Light Mode** configurado vía `darkMode: 'class'` en Tailwind.
+- Script inline preventivo en `<head>` para evitar parpadeos (FOUC), persistiendo preferencias en `localStorage` y detectando `prefers-color-scheme`.
+- Navbar superior con efecto `backdrop-blur-md`, fondo translúcido y bordes sutiles adaptados a ambos modos.
 - Priorizar clases utilitarias de **Tailwind CSS**.
 - Asegurar diseño responsivo (`sm:`, `md:`, `lg:`) en todas las vistas y componentes.
 - Mantener la coherencia tipográfica utilizando la fuente monospace `Source Code Pro Variable`.
 
 ### 4. Iconos
-- Todos los iconos se manejan como componentes `.astro` ubicados en `src/icons/` organizados por carpetas en inglés (`Social/`, `Technologies/`, `Titles/`).
+- Todos los iconos se manejan como componentes `.astro` ubicados en `src/icons/` organizados por carpetas en inglés (`Social/`, `Technologies/`, `Theme/`, `Titles/`).
 - Se mapean mediante diccionarios en los componentes para renderizado dinámico según la clave definida en las entidades de datos.
 
 ### 5. Gestión de Proyectos y Tecnologías

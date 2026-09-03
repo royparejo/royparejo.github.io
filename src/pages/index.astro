@@ -30,15 +30,15 @@ const SOCIAL_ICONS: Record<string, any> = {
 	<main class="px-4">
 		<Section>
 			<img
-				class="rounded-full w-20 h-20 mb-4" 
+				class="rounded-full w-20 h-20 mb-4 ring-2 ring-neutral-300 dark:ring-neutral-700 shadow-md" 
 				src={heroData.avatarUrl}
 				alt={heroData.avatarAlt}
 			/> 
-			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-5 pb-6 lg:pb-10">
+			<h1 class="text-neutral-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-5 pb-6 lg:pb-10">
 				Hola, Soy {heroData.name} 
 			</h1>
-			<h2 class="text-xl lg:text-2xl opacity-80 text-pretty max-w-[700px]">
-				<span class="text-blue-300">{heroData.role}</span><br/>
+			<h2 class="text-xl lg:text-2xl text-neutral-700 dark:text-neutral-300 text-pretty max-w-[700px] [&>strong]:text-blue-600 dark:[&>strong]:text-blue-400">
+				<span class="text-blue-600 dark:text-blue-400 font-semibold">{heroData.role}</span><br/>
 				<Fragment set:html={heroData.bioHtml} />
 			</h2>
 			<nav class="flex gap-x-5 mt-6 flex-wrap">
@@ -58,16 +58,16 @@ const SOCIAL_ICONS: Record<string, any> = {
 		</TechnologiesSection>
 		<Section id="proyectos">
 			<div class="flex justify-center">
-				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4">
-					<Code class="size-8 " />Proyectos
+				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4 text-neutral-900 dark:text-white">
+					<Code class="size-8" />Proyectos
 				</h2>
 			</div>
 			<Projects />
 		</Section>
 		<AboutMeSection id="sobre_mi">
 			<div class="flex justify-center">
-				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4">
-					<AboutMeIcon class="size-8 " />Sobre mí
+				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4 text-neutral-900 dark:text-white">
+					<AboutMeIcon class="size-8" />Sobre mí
 				</h2>
 			</div>
 			<AboutMe />

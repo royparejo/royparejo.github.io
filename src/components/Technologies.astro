@@ -42,15 +42,15 @@ const rightColumnCategories = technologiesData.slice(2);
 ---
 
 <div class="flex flex-col items-center">
-  <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4">
+  <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4 text-neutral-900 dark:text-white">
     <TechnologyIcon class="w-12 h-12" /> Tecnologías
   </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-4 w-full">
     <div>
       {leftColumnCategories.map((cat, index) => (
         <div class={index > 0 ? "mt-8" : ""}>
-          <h2 class="text-2xl opacity-80 mb-6 text-center">{cat.title}</h2>
+          <h2 class="text-2xl text-neutral-800 dark:text-neutral-200 font-semibold mb-6 text-center">{cat.title}</h2>
           <nav class="flex flex-wrap justify-center gap-4">
             {cat.technologies.map((tech) => {
               const IconComponent = TECH_ICONS[tech.icon];
@@ -68,7 +68,7 @@ const rightColumnCategories = technologiesData.slice(2);
     <div>
       {rightColumnCategories.map((cat, index) => (
         <div class={index > 0 ? "mt-8" : ""}>
-          <h2 class="text-2xl opacity-80 mb-6 text-center">{cat.title}</h2>
+          <h2 class="text-2xl text-neutral-800 dark:text-neutral-200 font-semibold mb-6 text-center">{cat.title}</h2>
           <nav class="flex flex-wrap justify-center gap-4">
             {cat.technologies.map((tech) => {
               const IconComponent = TECH_ICONS[tech.icon];

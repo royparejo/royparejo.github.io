@@ -1,16 +1,17 @@
 ---
 import Header from '../components/Header.astro';
 import '@fontsource-variable/source-code-pro';
+
 interface Props {
     title: string;
-	description: string;
+    description: string;
 }
 
 const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
@@ -18,47 +19,54 @@ const { description, title } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script is:inline>
+            const getThemePreference = () => {
+                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                    return localStorage.getItem('theme');
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            };
+            const isDark = getThemePreference() === 'dark';
+            document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+        </script>
     </head>
 
-    <body>
-        
+    <body id="top" class="bg-neutral-50 text-neutral-900 dark:bg-[#171717] dark:text-white transition-colors duration-300">
         <div class="background"></div>
-    <Header />
-    <slot /> 
+        <Header />
+        <slot /> 
     </body>
 </html>
 
 <style is:global>
     :root {
-        color-scheme: dark;
+        color-scheme: light dark;
     }
     html {
         font-family: 'Source Code Pro Variable', monospace;
         scroll-behavior: smooth;
-        
     }
     body {
-		
-        background: #171717;
-        color: #fff;
-        display: flex;
-		flex-direction: column;
         min-height: 100vh;
-        
+        display: flex;
+        flex-direction: column;
     }
     .background {
-    position: fixed; /* Cambié de absolute a fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-
-    background: radial-gradient(circle 500px at 50% 200px, #3e3e3e, transparent);
-
-    filter: blur(100px); /* Aplica el desenfoque */
-
-}
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        filter: blur(100px);
+        transition: background 0.3s ease;
+    }
+    html.dark .background {
+        background: radial-gradient(circle 500px at 50% 200px, #3e3e3e, transparent);
+    }
+    html:not(.dark) .background {
+        background: radial-gradient(circle 500px at 50% 200px, #cbd5e1, transparent);
+    }
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;

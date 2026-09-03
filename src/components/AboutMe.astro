@@ -3,7 +3,7 @@ import { aboutMeData } from '../config/aboutMeData.json';
 ---
 
 <section class="flex flex-col md:flex-row gap-x-8 justify-center items-center">
-    <div class="[&>p]:mb-4 [&>p>strong]:text-blue-300 [&>p>strong]:font-semibold text-pretty">
+    <div class="[&>p]:mb-4 text-neutral-700 dark:text-neutral-300 [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-blue-400 [&>p>strong]:font-semibold text-pretty">
         {aboutMeData.paragraphsHtml.map((paragraph) => (
             <p set:html={paragraph} />
         ))}
@@ -11,6 +11,6 @@ import { aboutMeData } from '../config/aboutMeData.json';
     <img
         src={aboutMeData.avatarUrl}
         alt={aboutMeData.avatarAlt}
-        class="rounded-full size-64"
+        class="rounded-full size-64 ring-2 ring-neutral-300 dark:ring-neutral-700 shadow-lg object-cover"
     />
 </section>
