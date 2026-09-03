@@ -1,0 +1,86 @@
+---
+import TechnologyIcons from "./TechnologyIcons.astro";
+import TechnologyIcon from '../icons/Titles/TechnologyIcon.astro';
+import Js from '../icons/Technologies/Languages/Js.astro';
+import Php from '../icons/Technologies/Languages/Php.astro';
+import Csharp from '../icons/Technologies/Languages/Csharp.astro';
+import Dart from "../icons/Technologies/Languages/Dart.astro";
+import Kotlin from "../icons/Technologies/Languages/Kotlin.astro";
+import Android from "../icons/Technologies/FrameworksLibraries/Android.astro";
+import Flutter from "../icons/Technologies/FrameworksLibraries/Flutter.astro";
+import React from '../icons/Technologies/FrameworksLibraries/React.astro';
+import Firebase from '../icons/Technologies/FrameworksLibraries/Firebase.astro';
+import Sql from "../icons/Technologies/Databases/Sql.astro";
+import Mysql from '../icons/Technologies/Databases/Mysql.astro';
+import Sqlite from '../icons/Technologies/Databases/Sqlite.astro';
+import Figma from '../icons/Technologies/AdditionalTools/Figma.astro';
+import Git from '../icons/Technologies/AdditionalTools/Git.astro';
+import Notion from '../icons/Technologies/AdditionalTools/Notion.astro';
+import { technologiesData } from "../config/technologiesData.json";
+
+const TECH_ICONS: Record<string, any> = {
+  Js,
+  Php,
+  Csharp,
+  Dart,
+  Kotlin,
+  Android,
+  Flutter,
+  React,
+  Firebase,
+  Sql,
+  Mysql,
+  Sqlite,
+  Figma,
+  Git,
+  Notion,
+};
+
+// Dividimos las categorías en 2 columnas para mantener el layout de 2 columnas
+const leftColumnCategories = technologiesData.slice(0, 2);
+const rightColumnCategories = technologiesData.slice(2);
+---
+
+<div class="flex flex-col items-center">
+  <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4">
+    <TechnologyIcon class="w-12 h-12" /> Tecnologías
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-4">
+    <div>
+      {leftColumnCategories.map((cat, index) => (
+        <div class={index > 0 ? "mt-8" : ""}>
+          <h2 class="text-2xl opacity-80 mb-6 text-center">{cat.title}</h2>
+          <nav class="flex flex-wrap justify-center gap-4">
+            {cat.technologies.map((tech) => {
+              const IconComponent = TECH_ICONS[tech.icon];
+              return (
+                <TechnologyIcons title={tech.title}>
+                  {IconComponent && <IconComponent class="w-12 h-12" />}
+                </TechnologyIcons>
+              );
+            })}
+          </nav>
+        </div>
+      ))}
+    </div>
+    
+    <div>
+      {rightColumnCategories.map((cat, index) => (
+        <div class={index > 0 ? "mt-8" : ""}>
+          <h2 class="text-2xl opacity-80 mb-6 text-center">{cat.title}</h2>
+          <nav class="flex flex-wrap justify-center gap-4">
+            {cat.technologies.map((tech) => {
+              const IconComponent = TECH_ICONS[tech.icon];
+              return (
+                <TechnologyIcons title={tech.title}>
+                  {IconComponent && <IconComponent class="w-12 h-12" />}
+                </TechnologyIcons>
+              );
+            })}
+          </nav>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
