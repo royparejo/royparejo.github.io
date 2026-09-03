@@ -55,6 +55,34 @@ export const projectTags: Record<string, TagInfo> = {
 
 export const projectsData: ProjectItem[] = [
   {
+    slug: "vaccine-card-app",
+    title: "Vaccine Card App",
+    shortDescription: "Aplicación móvil Flutter para la gestión y visualización de carnets de vacunación digitales, generación y lectura de códigos QR con datos cifrados.",
+    descriptionHtml: `
+      <p><strong>Vaccine Card App</strong> es una aplicación móvil de demostración desarrollada en Flutter diseñada para gestionar carnets de vacunación digitales de forma ágil y moderna.</p>
+      <p>El proyecto nace como una propuesta abierta para explorar una experiencia simple e intuitiva de carnet digital: carnet por persona, certificados de vacunación y escaneo de códigos QR con información cifrada.</p>
+      <h3>Características Principales</h3>
+      <ul>
+        <li><strong>Visualización de carnets:</strong> Organización y consulta de carnets de vacunación por persona.</li>
+        <li><strong>Carrusel interactivo:</strong> Navegación fluida y dinámica entre las tarjetas registradas.</li>
+        <li><strong>Registro de nuevos carnets:</strong> Formulario para incorporar nuevos registros y dosis.</li>
+        <li><strong>Certificado de vacunación:</strong> Vista detallada del certificado oficial.</li>
+        <li><strong>Scanner QR integrado:</strong> Lector y generador de códigos QR con información cifrada.</li>
+      </ul>
+      <h3>Evolución y Ramas del Repositorio</h3>
+      <p>El repositorio incluye diferentes ramas para mostrar la evolución del proyecto y distintas formas de implementar la arquitectura y manejo de estado:</p>
+      <ul>
+        <li><strong>main:</strong> Implementación completa utilizando herramientas nativas del SDK de Flutter (<code>ChangeNotifier</code> + <code>AnimatedBuilder</code>) y navegación con <code>go_router</code>.</li>
+        <li><strong>ui-only:</strong> Enfoque centrado exclusivamente en el diseño de la interfaz de usuario.</li>
+        <li><strong>riverpod:</strong> Implementación completa utilizando Riverpod como gestor reactivo de estado.</li>
+      </ul>
+    `,
+    link: "",
+    github: "https://github.com/royparejo/VaccineCardApp",
+    image: "/projects/app-vaccine-card.gif",
+    tags: ["Dart", "Flutter"],
+  },
+  {
     slug: "simplifica-inventory",
     title: "Simplifica Inventario",
     shortDescription: "Solución móvil diseñada para optimizar la gestión de stock en tiempo real. Con una interfaz intuitiva y funciones avanzadas, permite a las empresas controlar cada detalle de sus productos de manera ágil y confiable.",
