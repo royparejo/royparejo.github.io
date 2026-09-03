@@ -1,16 +1,25 @@
 ---
 import Github from "../../icons/Social/Github.astro";
 import { footerData } from "../../config/footerData.json";
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="m-4 mt-8 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center text-neutral-600 dark:text-neutral-400">
-    <div class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"> 
-        <span class="text-sm sm:text-center flex items-center">
-            <a href={footerData.githubUrl} target="_blank" 
-            rel="noopener noreferrer" class="hover:underline hover:text-blue-600 dark:hover:text-blue-400 flex items-center ml-2 transition-colors">
-                <Github class="size-4 md:size-6 mr-2"/>
-                {footerData.name}
-            </a>. 
-        </span> 
-    </div> 
+<footer class="w-full max-w-5xl mx-auto px-4 mt-20 mb-10 text-neutral-600 dark:text-neutral-400">
+    <div class="border-t border-neutral-200/80 dark:border-neutral-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+        <p class="text-center sm:text-left">
+            &copy; {currentYear} {footerData.name}. Todos los derechos reservados.
+        </p>
+
+        <a
+            href={footerData.githubUrl}
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-x-2 px-3.5 py-1.5 rounded-full border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900/60 hover:bg-neutral-200/80 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 shadow-sm"
+            aria-label={`Perfil de GitHub de ${footerData.name}`}
+        >
+            <Github class="size-4 md:size-5" />
+            <span class="font-medium">{footerData.name}</span>
+        </a>
+    </div>
 </footer>

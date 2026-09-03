@@ -2,8 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import SocialIcons from '../components/Global/SocialIcons.astro';
 import Section from '../components/Global/Section.astro';
-import TechnologiesSection from '../components/Home/TechnologiesSection.astro';
-import Technologies from '../components/Home/Technologies.astro';
 import Code from '../icons/Titles/Code.astro';
 import Projects from '../components/Home/Projects.astro';
 import AboutMe from '../components/Home/AboutMe.astro';
@@ -53,16 +51,13 @@ const SOCIAL_ICONS: Record<string, any> = {
 				})}
 			</nav>
 		</Section>
-		<!-- <TechnologiesSection id="tecnologias">
-			<Technologies /> -->
-		</TechnologiesSection>
-		<Section id="proyectos">
+		<Section id="proyectos" class="max-w-6xl">
 			<div class="flex justify-center">
 				<h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4 text-neutral-900 dark:text-white">
 					<Code class="size-8" />Últimos proyectos
 				</h2>
 			</div>
-			<Projects limit={3} showViewAll={true} />
+			<Projects limit={4} showViewAll={true} />
 		</Section>
 		<AboutMeSection id="sobre_mi">
 			<div class="flex justify-center">

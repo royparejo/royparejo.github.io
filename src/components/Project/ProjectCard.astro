@@ -44,59 +44,60 @@ const TAG_ICONS: Record<string, any> = {
 const HeadingTag = headingLevel;
 ---
 
-<article class="group relative flex flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0 p-4 sm:p-6 rounded-2xl transition-all duration-300 border border-neutral-200/80 dark:border-neutral-800/80 bg-white/40 dark:bg-neutral-900/40 hover:bg-white/80 dark:hover:bg-neutral-900/80 hover:border-blue-500/40 dark:hover:border-blue-400/40 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1 active:scale-[0.99] cursor-pointer">
-  <!-- Enlace transparente que hace toda la tarjeta clickeable -->
+<article class="group relative flex flex-col h-full p-4 sm:p-5 rounded-2xl transition-all duration-300 border border-neutral-200/80 dark:border-neutral-800/80 bg-white/50 dark:bg-neutral-900/50 hover:bg-white/90 dark:hover:bg-neutral-900/90 hover:border-blue-500/40 dark:hover:border-blue-400/40 hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1.5 active:scale-[0.99] cursor-pointer">
+  <!-- Enlace transparente de tarjeta completa -->
   <a
     href={projectUrl}
     class="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
     aria-label={`Ver detalles del proyecto ${title}`}
   ></a>
 
-  <!-- Columna izquierda: Imagen del proyecto con animación de zoom -->
-  <div class="w-full md:w-1/2 flex items-center">
-    <div class="relative w-full overflow-hidden rounded-xl border border-neutral-200/70 dark:border-neutral-800 shadow-md transition-all duration-500 group-hover:shadow-lg group-hover:border-blue-500/30">
-      <img
-        alt={`Captura del Proyecto ${title}`}
-        class="object-cover object-top w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
-        loading="lazy"
-        src={image}
-      />
-    </div>
+  <!-- Imagen del proyecto (superior) -->
+  <div class="relative w-full aspect-[16/10] overflow-hidden rounded-xl border border-neutral-200/70 dark:border-neutral-800/80 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-blue-500/30 bg-neutral-100 dark:bg-neutral-800/40">
+    <img
+      alt={`Captura del Proyecto ${title}`}
+      class="object-cover object-top w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"
+      loading="lazy"
+      src={image}
+    />
   </div>
 
-  <!-- Columna derecha: Detalles, etiquetas y enlaces externos -->
-  <div class="w-full md:w-1/2 flex flex-col justify-center">
-    <HeadingTag class="text-2xl font-bold mb-2 text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-      {title}
-    </HeadingTag>
+  <!-- Contenido de la tarjeta -->
+  <div class="flex flex-col flex-grow justify-between mt-4">
+    <div>
+      <!-- Título -->
+      <HeadingTag class="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+        {title}
+      </HeadingTag>
 
-    <!-- Etiquetas de tecnologías -->
-    <div class="flex flex-wrap mt-1 mb-2">
-      <ul class="flex flex-row gap-x-2 flex-wrap">
-        {tags.map((tagKey) => {
-          const tag = projectTags[tagKey];
-          if (!tag) return null;
-          const IconComponent = TAG_ICONS[tag.icon];
-          return (
-            <li class="my-1">
-              <span class={`flex gap-x-1.5 rounded-full text-xs ${tag.class} py-1 px-2.5 items-center shadow-sm font-medium`}>
-                {IconComponent && <IconComponent class="size-3.5" />}
-                {tag.name}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+      <!-- Etiquetas de tecnologías -->
+      <div class="flex flex-wrap mt-2 mb-3">
+        <ul class="flex flex-row gap-1.5 flex-wrap">
+          {tags.map((tagKey) => {
+            const tag = projectTags[tagKey];
+            if (!tag) return null;
+            const IconComponent = TAG_ICONS[tag.icon];
+            return (
+              <li>
+                <span class={`flex gap-x-1.5 rounded-full text-xs ${tag.class} py-1 px-2.5 items-center shadow-sm font-medium`}>
+                  {IconComponent && <IconComponent class="size-3.5" />}
+                  {tag.name}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <!-- Descripción breve -->
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed line-clamp-3 mb-4">
+        {shortDescription}
+      </p>
     </div>
 
-    <!-- Descripción breve -->
-    <p class="mt-2 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-      {shortDescription}
-    </p>
-
-    <!-- Enlaces directos a tiendas / código (con z-20 para ser clickeables independientemente) -->
+    <!-- Enlaces directos a tiendas / código (z-20 para interactuar independientemente) -->
     {(github || link || playstore || appstore) && (
-      <footer class="relative z-20 flex items-center justify-start gap-x-3 gap-y-2 flex-wrap mt-auto pt-2">
+      <footer class="relative z-20 flex items-center justify-start gap-2 flex-wrap pt-3 mt-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
         {playstore && (
           <SocialIcons href={playstore}>
             <Playstore class="size-4" />

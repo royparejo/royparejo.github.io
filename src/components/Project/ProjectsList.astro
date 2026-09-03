@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard.astro";
 import { projectsData } from "../../config/projectsData.json";
 ---
 
-<div class="flex flex-col gap-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
   {projectsData.map((project) => (
     <ProjectCard project={project} headingLevel="h2" />
   ))}
