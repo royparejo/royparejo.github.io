@@ -55,6 +55,29 @@ export const projectTags: Record<string, TagInfo> = {
 
 export const projectsData: ProjectItem[] = [
   {
+    slug: "simplifica-inventory",
+    title: "Simplifica Inventario",
+    shortDescription: "Solución móvil diseñada para optimizar la gestión de stock en tiempo real. Con una interfaz intuitiva y funciones avanzadas, permite a las empresas controlar cada detalle de sus productos de manera ágil y confiable.",
+    descriptionHtml: `
+      <p><strong>Simplifica Inventario</strong> es una solución móvil diseñada para optimizar la gestión de stock en tiempo real. Con una interfaz intuitiva y funciones avanzadas, permite a las empresas controlar cada detalle de sus productos de manera ágil y confiable.</p>
+      <h3>Características Principales</h3>
+      <ul>
+        <li><strong>Toma de inventario instantánea:</strong> Mediante escaneo de códigos de barras o QR.</li>
+        <li><strong>Transferencias internas:</strong> Entre ubicaciones dentro del mismo almacén, con trazabilidad automática.</li>
+        <li><strong>Consulta detallada de productos:</strong> Incluyendo historial, proveedor y stock disponible.</li>
+        <li><strong>Impresión de etiquetas y precios:</strong> Facilitando la actualización en góndolas.</li>
+        <li><strong>Alertas inteligentes:</strong> Para reposición de stock y cambio de etiquetas.</li>
+        <li><strong>Reporte de productos vencidos:</strong> Asegurando cumplimiento normativo y reducción de pérdidas.</li>
+      </ul>
+      <p>En resumen, esta aplicación convierte la gestión de inventarios en una experiencia moderna, eficiente y segura, ayudando a las empresas a mantener control total sobre sus operaciones y mejorar la productividad.</p>
+    `,
+    link: "",
+    image: "/projects/app-inventory.webp",
+    tags: ["Dart", "Flutter"],
+    playstore: "https://play.google.com/store/apps/details?id=com.simplifica.inventario",
+    appstore: "https://apps.apple.com/us/app/simplifica-inventario/id6776413611"
+  },
+  {
     slug: "simplifica-repartos",
     title: "Simplifica Repartos",
     shortDescription: "Es una herramienta diseñada para gestionar y coordinar la entrega de productos o mercancías de manera eficiente. Con esta aplicación, los encargados de los despachos pueden planificar rutas, asignar entregas, registrar el estado de cada envío y hacer seguimiento en tiempo real.",
@@ -73,7 +96,7 @@ export const projectsData: ProjectItem[] = [
     image: "/projects/app-repartos.webp",
     tags: ["Dart", "Flutter", "Sqlite"],
     playstore: "https://play.google.com/store/apps/details?id=com.simplifica.solicitudes",
-    appstore: ""
+    appstore: "https://apps.apple.com/us/app/simplifica-repartos/id6746261261"
   },
   {
     slug: "plaza-4",
@@ -81,10 +104,10 @@ export const projectsData: ProjectItem[] = [
     shortDescription: "Herramienta para el manejo de puntos de los clientes, la aplicación proporciona una tarjeta virtual y el historial de movimientos de los puntos del usuario.",
     descriptionHtml: `
       <p><strong>Plaza 4</strong> es una aplicación móvil de fidelización y lealtad de clientes, creada para brindar una experiencia de usuario rápida, moderna e interactiva.</p>
-      <p>Permite a los usuarios consultar y canjear sus puntos acumulados en comercios asociados, eliminando la necesidad de tarjetas plásticas físicas.</p>
+      <p>Permite a los usuarios consultar sus puntos acumulados en comercios asociados, eliminando la necesidad de tarjetas plásticas físicas.</p>
       <h3>Funcionalidades Destacadas</h3>
       <ul>
-        <li><strong>Tarjeta virtual:</strong> Generación de código QR y de barras dinámico para escaneo inmediato en caja.</li>
+        <li><strong>Tarjeta virtual:</strong> Generación de código de barras dinámico para escaneo inmediato en caja.</li>
         <li><strong>Historial de transacciones:</strong> Visualización detallada de movimientos, abonos y canjes de puntos.</li>
         <li><strong>Catálogo de beneficios:</strong> Exploración de recompensas disponibles y promociones vigentes.</li>
         <li><strong>Multiplataforma:</strong> Experiencia idéntica y optimizada tanto en iOS (App Store) como en Android (Google Play).</li>
@@ -107,9 +130,8 @@ export const projectsData: ProjectItem[] = [
       <h3>Capacidades y Tecnologías</h3>
       <ul>
         <li><strong>Validación por Geocercas:</strong> Verificación de coordenadas GPS contra el radio permitido del punto de venta.</li>
-        <li><strong>Reconocimiento fotográfico:</strong> Captura de selfie en tiempo real al ingresar y culminar la jornada.</li>
-        <li><strong>Gestión de incidencias:</strong> Reporte de permisos, descansos médicos y novedades directamente desde el móvil.</li>
-        <li><strong>Alta disponibilidad:</strong> Cola de sincronización local para zonas comerciales con señal limitada.</li>
+        <li><strong>Registro fotográfico:</strong> Uso de Cámara para captura fotos al ingresar y culminar la jornada.</li>
+        <li><strong>Distribución de la app:</strong> App no listada, <i>solo los usuarios con acceso al enlace podrán encontrar y descargar la app en App Store.</i></li>
       </ul>
     `,
     link: "",
