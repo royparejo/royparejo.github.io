@@ -1,5 +1,5 @@
 ---
-import Header from '../components/Header.astro';
+import Header from '../components/Global/Header.astro';
 import '@fontsource-variable/source-code-pro';
 
 interface Props {
@@ -31,7 +31,7 @@ const { description, title } = Astro.props;
         </script>
     </head>
 
-    <body id="top" class="bg-neutral-50 text-neutral-900 dark:bg-[#171717] dark:text-white transition-colors duration-300">
+    <body id="top" class="bg-neutral-50 text-neutral-900 dark:bg-[#323232] dark:text-white transition-colors duration-300">
         <div class="background"></div>
         <Header />
         <slot /> 

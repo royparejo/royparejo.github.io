@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SocialIcons from '../components/SocialIcons.astro';
-import Section from '../components/Section.astro';
-import TechnologiesSection from '../components/TechnologiesSection.astro';
-import Technologies from '../components/Technologies.astro';
+import SocialIcons from '../components/Global/SocialIcons.astro';
+import Section from '../components/Global/Section.astro';
+import TechnologiesSection from '../components/Home/TechnologiesSection.astro';
+import Technologies from '../components/Home/Technologies.astro';
 import Code from '../icons/Titles/Code.astro';
-import Projects from '../components/Projects.astro';
-import AboutMe from '../components/AboutMe.astro';
+import Projects from '../components/Home/Projects.astro';
+import AboutMe from '../components/Home/AboutMe.astro';
 import AboutMeIcon from '../icons/Titles/AboutMeIcon.astro';
-import AboutMeSection from '../components/AboutMeSection.astro';
-import Footer from '../components/Footer.astro';
+import AboutMeSection from '../components/Home/AboutMeSection.astro';
+import Footer from '../components/Global/Footer.astro';
 import Linkedin from '../icons/Social/Linkedin.astro';
 import Github from '../icons/Social/Github.astro';
 import Gmail from '../icons/Social/Gmail.astro';
@@ -53,8 +53,8 @@ const SOCIAL_ICONS: Record<string, any> = {
 				})}
 			</nav>
 		</Section>
-		<TechnologiesSection id="tecnologias">
-			<Technologies />
+		<!-- <TechnologiesSection id="tecnologias">
+			<Technologies /> -->
 		</TechnologiesSection>
 		<Section id="proyectos">
 			<div class="flex justify-center">

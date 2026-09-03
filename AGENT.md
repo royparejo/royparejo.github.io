@@ -38,21 +38,23 @@ royparejo.github.io/
 ├── public/                       # Archivos estáticos (favicon, imágenes de proyectos, etc.)
 │   └── projects/                 # Capturas/banners de las aplicaciones (.webp)
 ├── src/
-│   ├── components/               # Componentes UI modulares
-│   │   ├── AboutMe.astro         # Reseña personal y trayectoria
-│   │   ├── AboutMeSection.astro  # Contenedor de sección Sobre mí
-│   │   ├── Badge.astro           # Badge genérico (ej. "Open To Work")
-│   │   ├── Certificates.astro    # Sección y lista de certificados/cursos
-│   │   ├── CertificatesSection.astro # Contenedor de sección de certificados
-│   │   ├── Footer.astro          # Pie de página y copyright
-│   │   ├── Header.astro          # Barra de navegación fija / enlaces de sección y toggle de tema
-│   │   ├── Projects.astro        # Listado de proyectos y tarjetas con enlaces
-│   │   ├── Section.astro         # Contenedor estándar para secciones
-│   │   ├── SocialIcons.astro     # Botón/enlace reutilizable de redes y enlaces externos
-│   │   ├── Technologies.astro    # Grid categorizado de habilidades técnicas
-│   │   ├── TechnologiesSection.astro # Contenedor de sección de tecnologías
-│   │   ├── TechnologyIcons.astro # Pill/badge de tecnología
-│   │   └── ThemeToggle.astro     # Botón conmutador de tema claro/oscuro
+│   ├── components/               # Componentes UI modulares organizados por alcance
+│   │   ├── Global/               # Componentes reutilizables y globales
+│   │   │   ├── Badge.astro       # Badge genérico (ej. "Open To Work")
+│   │   │   ├── Footer.astro      # Pie de página y copyright
+│   │   │   ├── Header.astro      # Barra de navegación fija y toggle de tema
+│   │   │   ├── Section.astro     # Contenedor estándar para secciones
+│   │   │   ├── SocialIcons.astro # Botón/enlace reutilizable de redes y enlaces externos
+│   │   │   ├── TechnologyIcons.astro # Pill/badge de tecnología
+│   │   │   └── ThemeToggle.astro # Botón conmutador de tema claro/oscuro
+│   │   └── Home/                 # Secciones y componentes específicos de la página de inicio
+│   │       ├── AboutMe.astro     # Reseña personal y trayectoria
+│   │       ├── AboutMeSection.astro # Contenedor de sección Sobre mí
+│   │       ├── Certificates.astro # Sección y lista de certificados/cursos
+│   │       ├── CertificatesSection.astro # Contenedor de sección de certificados
+│   │       ├── Projects.astro    # Listado de proyectos y tarjetas con enlaces
+│   │       ├── Technologies.astro # Grid categorizado de habilidades técnicas
+│   │       └── TechnologiesSection.astro # Contenedor de sección de tecnologías
 │   ├── config/                   # Configuración y datos dinámicos desacoplados
 │   │   ├── types/
 │   │   │   └── configDataTypes.ts # Interfaces TypeScript para todas las entidades
