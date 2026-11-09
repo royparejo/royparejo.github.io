@@ -5,6 +5,7 @@ import Dart from "../../icons/Technologies/Languages/Dart.astro";
 import Java from "../../icons/Technologies/Languages/Java.astro";
 import Js from "../../icons/Technologies/Languages/Js.astro";
 import Typescript from "../../icons/Technologies/Languages/Typescript.astro";
+import Ast from "../../icons/Technologies/FrameworksLibraries/Ast.astro";
 import React from "../../icons/Technologies/FrameworksLibraries/React.astro";
 import Node from "../../icons/Technologies/FrameworksLibraries/Node.astro";
 import Tailwind from "../../icons/Technologies/FrameworksLibraries/Tailwind.astro";
@@ -34,6 +35,7 @@ const TAG_ICONS: Record<string, any> = {
   Java,
   Js,
   Typescript,
+  Ast,
   React,
   Node,
   Tailwind,
@@ -140,7 +142,7 @@ const projectImages = project.images?.length ? project.images : [project.image];
             Detalles del Proyecto
           </h2>
           <div
-            class="text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-4 text-pretty [&>p]:mb-3 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-neutral-900 dark:[&>h3]:text-white [&>h3]:mt-6 [&>h3]:mb-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2 [&>ul>li>strong]:text-neutral-900 dark:[&>ul>li>strong]:text-white [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-blue-400"
+            class="text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-4 text-pretty [&>p]:mb-3 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-neutral-900 dark:[&>h3]:text-white [&>h3]:mt-6 [&>h3]:mb-2 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2 [&>ul>li>strong]:text-neutral-900 dark:[&>ul>li>strong]:text-white [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-blue-400 [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-blue-500"
             set:html={project.descriptionHtml}
           />
         </section>

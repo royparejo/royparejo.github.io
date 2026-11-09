@@ -71,9 +71,50 @@ export const projectTags: Record<string, TagInfo> = {
     class: "bg-[#234764] text-white",
     icon: "Postgresql",
   },
+  Astro: {
+    name: "Astro",
+    class: "bg-[#231942] text-white",
+    icon: "Ast",
+  },
 };
 
 export const projectsData: ProjectItem[] = [
+  {
+    slug: "linquendo-web",
+    title: "Linquendo — Web & E-commerce",
+    shortDescription: "Plataforma web y e-commerce de tarjetas y displays NFC/QR con variaciones de productos, carrito de compras interactivo y generador gratuito de enlaces y códigos QR para reseñas de Google.",
+    descriptionHtml: `
+      <p><strong>Linquendo</strong> (<a href="https://linquendo.com" target="_blank" rel="noopener noreferrer">linquendo.com</a>) es una plataforma web y tienda online enfocada en potenciar la presencia digital de emprendimientos y negocios mediante soluciones de proximidad (tecnología <strong>NFC</strong> y códigos <strong>QR</strong>) y servicios digitales.</p>
+      <p>Su objetivo principal es ayudar a los comercios a multiplicar sus reseñas de 5 estrellas en <strong>Google</strong> y <strong>Tripadvisor</strong> sin fricciones: el cliente solo acerca su celular o escanea el código QR para abrir directamente el formulario de calificación.</p>
+      <h3>E-commerce con Variaciones y Carrito de Compras</h3>
+      <ul>
+        <li><strong>Catálogo de Productos NFC + QR:</strong> Venta de tarjetas PVC con NFC y QR, displays de acrílico para mostrador, expositores de sobremesa, placas adhesivas NFC y tarjetas para menús digitales.</li>
+        <li><strong>Variaciones de Producto:</strong> Selección dinámica de modelos, diseños y plataformas (Google, Tripadvisor, versión Blanca/Negra, solo NFC o NFC + QR) con actualización de imágenes y precios en tiempo real.</li>
+        <li><strong>Carrito de Compras Interactivo:</strong> Panel lateral deslizable (drawer) con control de cantidades, cálculo instantáneo de subtotales, persistencia local de sesión y flujo de pedido integrado con WhatsApp y métodos de pago locales.</li>
+      </ul>
+      <h3>Herramienta Libre — Generador de Enlaces y QR de Reseñas de Google</h3>
+      <p>Incluye una utilidad web <strong>100% gratuita y sin registro</strong> disponible para cualquier negocio en <a href="https://linquendo.com/generador-enlace-resenas-google/" target="_blank" rel="noopener noreferrer">linquendo.com/generador-enlace-resenas-google</a>:</p>
+      <ul>
+        <li><strong>Conversión instantánea desde Google Maps:</strong> Permite pegar el enlace compartido de Google Maps de cualquier local o empresa y transformarlo automáticamente en un enlace directo a la ventana de calificación.</li>
+        <li><strong>Descarga de Código QR en Alta Calidad:</strong> Genera al instante el código QR listo para compartir digitalmente o descargar en formatos <strong>PNG</strong> y vectorial <strong>SVG</strong> para diseño e impresión.</li>
+      </ul>
+      <h3>Servicios Digitales y Contenido</h3>
+      <ul>
+        <li><strong>Soluciones para Negocios:</strong> Secciones dedicadas a Menús Digitales (Carta QR), Tarjetas Digitales de Redes Sociales y Desarrollo de Páginas Web optimizadas para conversión y SEO local.</li>
+        <li><strong>Blog Especializado:</strong> Artículos y guías prácticas sobre posicionamiento local, estrategias para obtener más reseñas y uso de tecnología NFC en comercios.</li>
+      </ul>
+    `,
+    link: "https://linquendo.com",
+    github: "",
+    image: "/projects/linquendo-web/linquedo.home.webp",
+    images: [
+      "/projects/linquendo-web/linquedo.home.webp",
+      "/projects/linquendo-web/linquendo.products.webp",
+      "/projects/linquendo-web/linquendo.cart.webp",
+      "/projects/linquendo-web/google-review-link-generator.webp",
+    ],
+    tags: ["Astro", "Typescript", "Tailwind", "Js"],
+  },
   {
     slug: "linquendo-redirect-system",
     title: "Sistema de Redireccionamiento",
