@@ -137,10 +137,10 @@ export const projectsData: ProjectItem[] = [
     `,
     link: "",
     github: "",
-    image: "/projects/linquendo.admin.1.webp",
+    image: "/projects/linquendo.admin.2.webp",
     images: [
-      "/projects/linquendo.admin.1.webp",
       "/projects/linquendo.admin.2.webp",
+      "/projects/linquendo.admin.1.webp",
     ],
     tags: ["Node", "Typescript", "React", "Tailwind", "Postgresql"],
   },
