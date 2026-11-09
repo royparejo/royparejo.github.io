@@ -28,6 +28,7 @@ export interface ProjectItem {
   shortDescription: string;
   descriptionHtml?: string;
   image: string;
+  images?: string[];
   tags: string[];
   link?: string;
   github?: string;

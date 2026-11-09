@@ -51,9 +51,58 @@ export const projectTags: Record<string, TagInfo> = {
     class: "bg-[#000] text-white",
     icon: "Java",
   },
+  Typescript: {
+    name: "TypeScript",
+    class: "bg-[#1e5082] text-white",
+    icon: "Typescript",
+  },
+  Node: {
+    name: "Node.js",
+    class: "bg-[#1f5c24] text-white",
+    icon: "Node",
+  },
+  Tailwind: {
+    name: "Tailwind CSS",
+    class: "bg-[#0b5c75] text-white",
+    icon: "Tailwind",
+  },
+  Postgresql: {
+    name: "PostgreSQL",
+    class: "bg-[#234764] text-white",
+    icon: "Postgresql",
+  },
 };
 
 export const projectsData: ProjectItem[] = [
+  {
+    slug: "linquendo-redirect-system",
+    title: "Sistema de Redireccionamiento",
+    shortDescription: "Plataforma full-stack para la gestión de enlaces cortos (NFC/QR) de alta velocidad, analíticas de visitas en tiempo real y panel administrativo.",
+    descriptionHtml: `
+      <p><strong>Linquendo</strong> es una solución integral de redireccionamiento inteligente (chips físicos NFC y códigos QR) y analíticas de visitas pensada para negocios como cafeterías, hoteles, restaurantes y agencias de turismo.</p>
+      <p>El sistema está compuesto por un <strong>servicio de redireccionamiento de alta velocidad</strong> y un <strong>panel administrativo web</strong> que permite gestionar el ciclo de vida de los enlaces y analizar el comportamiento de los usuarios finales.</p>
+      <h3>Backend — Motor de Redireccionamiento y API</h3>
+      <ul>
+        <li><strong>Respuesta ultrarrápida:</strong> Uso de caché en memoria para resolver las URLs de destino en milisegundos sin afectar la experiencia del usuario.</li>
+        <li><strong>Analíticas en segundo plano:</strong> Registro asíncrono de cada visita o escaneo (NFC, QR y enlaces directos) sin bloquear la redirección.</li>
+        <li><strong>Flujo de activación dinámica:</strong> Enrutamiento automático hacia el formulario de configuración cuando un código físico nuevo requiere ser registrado y activado.</li>
+      </ul>
+      <h3>Frontend — Linquendo Admin (Panel Administrativo)</h3>
+      <ul>
+        <li><strong>Gestión de Negocios y Enlaces:</strong> Administración centralizada de comercios, ubicación en mapa y sus canales digitales (sitio web, redes sociales, menús digitales y reseñas).</li>
+        <li><strong>Control de Códigos Físicos (NFC/QR):</strong> Generación de códigos por lotes, asignación rápida de destinos, organización por etiquetas y control de estado activo/inactivo.</li>
+        <li><strong>Dashboard y Reportes Visuales:</strong> Monitoreo de métricas clave con filtros dinámicos, tablas paginadas y gráficas interactivas de escaneos por plataforma y fecha.</li>
+      </ul>
+    `,
+    link: "",
+    github: "",
+    image: "/projects/linquendo.admin.1.webp",
+    images: [
+      "/projects/linquendo.admin.1.webp",
+      "/projects/linquendo.admin.2.webp",
+    ],
+    tags: ["Node", "Typescript", "React", "Tailwind", "Postgresql"],
+  },
   {
     slug: "vaccine-card-app",
     title: "Vaccine Card App",

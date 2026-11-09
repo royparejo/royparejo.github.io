@@ -4,11 +4,15 @@ import Css from "../../icons/Technologies/Languages/Css.astro";
 import Dart from "../../icons/Technologies/Languages/Dart.astro";
 import Java from "../../icons/Technologies/Languages/Java.astro";
 import Js from "../../icons/Technologies/Languages/Js.astro";
+import Typescript from "../../icons/Technologies/Languages/Typescript.astro";
 import React from "../../icons/Technologies/FrameworksLibraries/React.astro";
+import Node from "../../icons/Technologies/FrameworksLibraries/Node.astro";
+import Tailwind from "../../icons/Technologies/FrameworksLibraries/Tailwind.astro";
 import Firebase from "../../icons/Technologies/FrameworksLibraries/Firebase.astro";
 import Flutter from "../../icons/Technologies/FrameworksLibraries/Flutter.astro";
 import Android from "../../icons/Technologies/FrameworksLibraries/Android.astro";
 import Sqlite from "../../icons/Technologies/Databases/Sqlite.astro";
+import Postgresql from "../../icons/Technologies/Databases/Postgresql.astro";
 import SocialIcons from "../Global/SocialIcons.astro";
 import Github from "../../icons/Social/Github.astro";
 import Link from "../../icons/Social/Link.astro";
@@ -29,14 +33,19 @@ const TAG_ICONS: Record<string, any> = {
   Dart,
   Java,
   Js,
+  Typescript,
   React,
+  Node,
+  Tailwind,
   Firebase,
   Flutter,
   Android,
   Sqlite,
+  Postgresql,
 };
 
 const hasLinks = Boolean(project.github || project.link || project.playstore || project.appstore);
+const projectImages = project.images?.length ? project.images : [project.image];
 ---
 
 <article class="w-full max-w-4xl mx-auto py-8">
@@ -138,16 +147,18 @@ const hasLinks = Boolean(project.github || project.link || project.playstore || 
       )}
     </div>
 
-    <!-- LADO DERECHO: Imagen del proyecto -->
-    <div class="lg:col-span-5 sticky top-24">
-      <div class="overflow-hidden rounded-2xl border border-neutral-200/80 dark:border-neutral-800 shadow-xl bg-neutral-100 dark:bg-neutral-800/50">
-        <img
-          src={project.image}
-          alt={`Captura del proyecto ${project.title}`}
-          class="w-full h-auto object-cover object-top transition duration-500 hover:scale-105"
-          loading="eager"
-        />
-      </div>
+    <!-- LADO DERECHO: Imágenes del proyecto -->
+    <div class="lg:col-span-5 sticky top-24 flex flex-col gap-6">
+      {projectImages.map((imgSrc, index) => (
+        <div class="overflow-hidden rounded-2xl border border-neutral-200/80 dark:border-neutral-800 shadow-xl bg-neutral-100 dark:bg-neutral-800/50">
+          <img
+            src={imgSrc}
+            alt={`Captura ${index + 1} del proyecto ${project.title}`}
+            class="w-full h-auto object-cover object-top transition duration-500 hover:scale-105"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
     </div>
   </div>
 </article>
