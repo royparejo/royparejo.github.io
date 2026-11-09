@@ -118,20 +118,20 @@ export const projectsData: ProjectItem[] = [
   {
     slug: "linquendo-redirect-system",
     title: "Sistema de Redireccionamiento",
-    shortDescription: "Plataforma full-stack para la gestión de enlaces cortos (NFC/QR) de alta velocidad, analíticas de visitas en tiempo real y panel administrativo.",
+    shortDescription: "Plataforma full-stack para la gestión de enlaces cortos de alta velocidad, analíticas de visitas en tiempo real y panel administrativo.",
     descriptionHtml: `
-      <p><strong>Linquendo</strong> es una solución integral de redireccionamiento inteligente (chips físicos NFC y códigos QR) y analíticas de visitas pensada para negocios como cafeterías, hoteles, restaurantes y agencias de turismo.</p>
+      <p><strong>Linquendo</strong> es una solución integral de redireccionamiento inteligente (QR dinámico) y analíticas de visitas pensada para negocios como cafeterías, hoteles, restaurantes y agencias de turismo.</p>
       <p>El sistema está compuesto por un <strong>servicio de redireccionamiento de alta velocidad</strong> y un <strong>panel administrativo web</strong> que permite gestionar el ciclo de vida de los enlaces y analizar el comportamiento de los usuarios finales.</p>
       <h3>Backend — Motor de Redireccionamiento y API</h3>
       <ul>
         <li><strong>Respuesta ultrarrápida:</strong> Uso de caché en memoria para resolver las URLs de destino en milisegundos sin afectar la experiencia del usuario.</li>
-        <li><strong>Analíticas en segundo plano:</strong> Registro asíncrono de cada visita o escaneo (NFC, QR y enlaces directos) sin bloquear la redirección.</li>
+        <li><strong>Analíticas en segundo plano:</strong> Registro asíncrono de cada visita o escaneo sin bloquear la redirección.</li>
         <li><strong>Flujo de activación dinámica:</strong> Enrutamiento automático hacia el formulario de configuración cuando un código físico nuevo requiere ser registrado y activado.</li>
       </ul>
       <h3>Frontend — Linquendo Admin (Panel Administrativo)</h3>
       <ul>
         <li><strong>Gestión de Negocios y Enlaces:</strong> Administración centralizada de comercios, ubicación en mapa y sus canales digitales (sitio web, redes sociales, menús digitales y reseñas).</li>
-        <li><strong>Control de Códigos Físicos (NFC/QR):</strong> Generación de códigos por lotes, asignación rápida de destinos, organización por etiquetas y control de estado activo/inactivo.</li>
+        <li><strong>Control de Códigos de enlace:</strong> Generación de códigos por lotes, asignación rápida de destinos, organización por etiquetas y control de estado activo/inactivo.</li>
         <li><strong>Dashboard y Reportes Visuales:</strong> Monitoreo de métricas clave con filtros dinámicos, tablas paginadas y gráficas interactivas de escaneos por plataforma y fecha.</li>
       </ul>
     `,
